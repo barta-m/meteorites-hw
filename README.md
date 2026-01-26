@@ -1,7 +1,7 @@
 # Earth Meteorite Landings Analysis
 
 ## Task 1:
-Extract programmatically the list of Earth Meteorite Landings from this dataset: [https://data.nasa.gov/docs/legacy/meteorite_landings/gh4g-9sfh.json](https://data.nasa.gov/docs/legacy/meteorite_landings/gh4g-9sfh.json)  
+Extract programmatically the list of Earth Meteorite Landings from this dataset: [https://dmachek.github.io/meteorites-homework/meteorite_landings.json](https://dmachek.github.io/meteorites-homework/meteorite_landings.json)  
 - How many entries are in the dataset?  
 - What is the name and mass of the most massive meteorite in this dataset?  
 - What is the most frequent year in this dataset?  
