@@ -1,0 +1,46 @@
+name: Meteorite Analysis Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  analysis:
+    name: Analysis
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./solution
+
+    steps:
+    # 1. Check out the code
+    - name: Checkout Code
+      uses: actions/checkout@v6
+
+    # 2. Set up Python with Caching
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+
+    # 3. Install Dependencies
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 4. Verify Logic
+    - name: Run Unit Tests
+      run: python -m pytest
+
+    # 5. Execute Analysis
+    - name: Run Analysis Script
+      run: python script.py
+
+    # 6. Verify Docker Build
+    - name: Verify Docker Build
+      run: docker build .
